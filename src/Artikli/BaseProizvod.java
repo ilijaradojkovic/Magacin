@@ -1,5 +1,7 @@
 package Artikli;
 
+import java.util.Objects;
+
 public class BaseProizvod {
 
 	private String naziv;
@@ -22,6 +24,26 @@ public class BaseProizvod {
 	}
 	public long getSifra() {
 		return sifra;
+	}
+	@Override
+	public String toString() {
+		return "BaseProizvod [naziv=" + naziv + ", sifra=" + sifra + ", opis=" + opis + ", kolicina=" + kolicina + "]";
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(kolicina, naziv, opis, sifra);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BaseProizvod other = (BaseProizvod) obj;
+		return kolicina == other.kolicina && Objects.equals(naziv, other.naziv) && Objects.equals(opis, other.opis)
+				&& sifra == other.sifra;
 	}
 	public void setSifra(long sifra) {
 		this.sifra = sifra;
