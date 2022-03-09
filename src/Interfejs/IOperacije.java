@@ -9,5 +9,5 @@ public interface IOperacije {
 	void AddProizvod(BaseProizvod proizvod);
 	void RemoveProizvod(BaseProizvod proizvod);
 	
-	BaseProizvod FindProizvode(int sifra);
+	BaseProizvod FindProizvode(long sifra);
 }
