@@ -19,7 +19,9 @@ public class BaseProizvod {
 	public String getNaziv() {
 		return naziv;
 	}
-	public void setNaziv(String naziv) {
+	public void setNaziv(String naziv) throws IllegalArgumentException {
+		if(naziv==null) throw new IllegalArgumentException("Naziv ne sme biti null");
+		if(naziv.length()==0) throw new IllegalArgumentException("Naziv ne sme biti prazan");
 		this.naziv = naziv;
 	}
 	public long getSifra() {
@@ -45,19 +47,23 @@ public class BaseProizvod {
 		return kolicina == other.kolicina && Objects.equals(naziv, other.naziv) && Objects.equals(opis, other.opis)
 				&& sifra == other.sifra;
 	}
-	public void setSifra(long sifra) {
+	public void setSifra(long sifra) throws IllegalAccessException {
+		if(sifra<0) throw new IllegalAccessException("Sifra ne sme biti negativan broj");
 		this.sifra = sifra;
 	}
 	public String getOpis() {
 		return opis;
 	}
-	public void setOpis(String opis) {
+	public void setOpis(String opis) throws IllegalArgumentException {
+		if(naziv==null) throw new IllegalArgumentException("Opis ne sme biti null");
+
 		this.opis = opis;
 	}
 	public int getKolicina() {
 		return kolicina;
 	}
-	public void setKolicina(int kolicina) {
+	public void setKolicina(int kolicina) throws IllegalArgumentException {
+		if(kolicina<0) throw new IllegalArgumentException("Kolicina ne sme biti  manja od 0");
 		this.kolicina = kolicina;
 	}
 	

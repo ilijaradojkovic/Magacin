@@ -13,7 +13,9 @@ public class KucnaHemija extends BaseProizvod {
 	public GregorianCalendar getDatumTrajanja() {
 		return datumTrajanja;
 	}
-	public void setDatumTrajanja(GregorianCalendar datumTrajanja) {
+	public void setDatumTrajanja(GregorianCalendar datumTrajanja) throws IllegalArgumentException
+	{
+		if(datumTrajanja==null) throw new IllegalArgumentException("Datum ne sme biti null");
 		this.datumTrajanja = datumTrajanja;
 	}
 	
