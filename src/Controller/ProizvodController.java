@@ -9,11 +9,13 @@ import Interfejs.IOperacije;
 public class ProizvodController implements IOperacije{
 
 	List<BaseProizvod> proizvodi;
+
 	public ProizvodController() {
 		proizvodi=new LinkedList<BaseProizvod>();
 	}
 	@Override
 	public void AddProizvod(BaseProizvod proizvod) {
+
 		BaseProizvod nadjen=FindProizvode(proizvod.getSifra());
 		if(nadjen!=null) {
 				nadjen.setKolicina(nadjen.getKolicina()+proizvod.getKolicina());
@@ -22,11 +24,11 @@ public class ProizvodController implements IOperacije{
 		}else {
 			proizvodi.add(proizvod);
 			}
-		
 	}
 
 	@Override
 	public void RemoveProizvod(BaseProizvod proizvod) {
+
 		BaseProizvod nadjen=FindProizvode(proizvod.getSifra());
 		if(nadjen!=null) {
 			if((nadjen.getKolicina()-proizvod.getKolicina())>0) {
@@ -38,11 +40,14 @@ public class ProizvodController implements IOperacije{
 		}else {
 			proizvodi.add(proizvod);
 			}
-		
+
 	}
 
 	@Override
+
 	public BaseProizvod FindProizvode(long sifra) {
+
+
 		for (BaseProizvod baseProizvod : proizvodi) {
 			if(baseProizvod.getSifra()==sifra) return baseProizvod;
 		}
